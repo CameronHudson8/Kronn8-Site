@@ -1,0 +1,22 @@
+version: "3.7"
+services:
+
+  kronn8_site:
+    image: richarvey/nginx-php-fpm
+    environment:
+      - WEBROOT=/var/www/html/public
+    # restart: unless-stopped
+    tty: true
+    # user: $CURRENT_UID
+    ports:
+      - "280:80"
+      - "2443:443"
+    volumes:
+      - app:/var/www/html
+
+volumes:
+  app:
+    driver_opts:
+      type: volume
+      device: ${PWD}
+      o: bind

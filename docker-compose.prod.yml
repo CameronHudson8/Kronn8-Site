@@ -1,0 +1,19 @@
+version: "3.7"
+services:
+
+  kronn8_site:
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    environment:
+      - WEBROOT=/var/www/html/public
+    tty: true
+    ports:
+      - "280:80"
+      - "2443:443"
+
+networks:
+  default:
+    # external:
+      # name: reverse_proxy
+    name: reverse_proxy

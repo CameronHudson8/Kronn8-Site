@@ -9,8 +9,8 @@ services:
       - WEBROOT=/var/www/html/public
     tty: true
     ports:
-      - "180:80"
-      - "1443:443"
+      - "280:80"
+      - "2443:443"
 
 networks:
   default:
